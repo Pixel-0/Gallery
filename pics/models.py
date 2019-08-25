@@ -28,3 +28,24 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
+
+class Image(models.Model):
+    name = models.CharField(max_length =30)
+    description = models.TextField()
+    image = models.ImageField(upload_to = 'images/')
+    upload_date = models.DateTimeField(auto_now_add=True)
+    category = models.ForeignKey(Category,blank =True)
+    location = models.ForeignKey(Location,blank =True,null=True)
+
+    def save_image(self):
+        self.save()
+
+    def delete_image(self):
+        self.delete()
+
+    @classmethod
+    def get_image_by_id(cls,number):
+        return cls.objects.get(pk = number)
+
+    def __str__(self):
+        return self.name
