@@ -13,3 +13,21 @@ def categories(request):
     locations = Location.objects.all()
     images = Image.objects.all()
     return render(request, 'categories.html',{"categories":categories,"images":images,"locations":locations})
+
+def category(request):
+    locations = Location.objects.all()
+    images = Image.objects.all()
+    if 'category' in request.GET and request.GET["category"]:
+        search_term = request.GET.get("category")
+        searched_category = Category.search_by_category(search_term)
+        message = f"{search_term}"
+        return render(request, 'category.html',{"message":message,"category": searched_category,"images":images,"locations":locations})
+
+    else:
+        message = "Invalid."
+        return render(request, 'index.html',{"message":message,"locations":locations})
+
+def location(request,id):
+    locations = Location.objects.all()
+    images = Image.objects.filter(location__id=id)
+    return render(request, 'location.html', {"images":images,"locations":locations})
