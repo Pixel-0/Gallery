@@ -5,9 +5,9 @@ from .models import Image,Category,Location
 
 class ImageTestClass(TestCase):
     def setUp(self):
-        self.james= Image(name = 'James', 
-                        description ='Potrait of a Kenyan man in serious thought', 
-                        image ='images/james.jpg',
+        self.pixel= Image(name = 'Pixel', 
+                        description ='Portrait', 
+                        image ='images/pixel.jpg',
                         upload_date ='2019-05-10 17:30:36.627472+03')
 
     def test_instance(self):
@@ -26,11 +26,11 @@ class ImageTestClass(TestCase):
 
 class CategoryTestClass(TestCase):
     def setUp(self):
-        self.james= Image(name = 'James', 
-                        description ='Potrait of a Kenyan man in serious thought', 
-                        image ='images/james.jpg',
+        self.pixel= Image(name = 'Pixel', 
+                        description ='Potrait', 
+                        image ='images/pixel.jpg',
                         upload_date ='2019-05-10 17:30:36.627472+03',
                         category = 'Potraits')
 
         def test_instance(self):
-        self.assertTrue(isinstance(self.james.category,Category))
+        self.assertTrue(isinstance(self.pixel.category,Category))
