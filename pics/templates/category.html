@@ -12,7 +12,7 @@
     <div class="container">
         <div class="row">
             {% if category %}
-            <h1 style="margin:1%;margin-left:35%;">Found category: <span>{{message}}</span></h1>
+            <h1 style="margin:1%;margin-left:35%; color: #fff;">Found category: <span>{{message}}</span></h1>
             <div class="container-fluid" style="display: flex;
             flex-wrap: wrap;">
                 {% for image in images %}
@@ -32,25 +32,25 @@
                 </div>
                 {% endif %}
                 <div class="">
-                    <div class="modal" id="{{image.id}}" tabindex="-1" role="dialog" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-body">
-                                <div class="row">
-                                    <div class="col-sm-8 col-md-8 ">
-                                        <img src="{{image.image.url}}" class="img-fluid" id="modal">
-                                    </div>
-                                    <div class="col-sm-6 col-md-6" id="description">
-                                        <ul style="list-style-type:none; color:white;">
-                                            <li>name: {{image.name}}</li>
-                                            <li>description: {{image.description}}</li>
-                                            <li>category: {{image.category.name}}</li>
-                                            <li>uploaded: {{image.upload_date}}</li>
-                                        </ul>
+                        <div class="modal" id="{{image.id}}" tabindex="-1" role="dialog" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <div class="col-sm-8 col-md-8 ">
+                                                <img src="{{image.image.url}}" class="img-fluid" id="modal">
+                                            </div>
+                                            <div class="col-sm-6 col-md-6" id="description">
+                                                <ul style="list-style-type:none; color:white;">
+                                                    <li>NAME: {{image.name}}</li>
+                                                    <li>DESCRIPTION: {{image.description}}</li>
+                                                    <li>CATEGORY: {{image.category.name}}</li>
+                                                    <li>UPLOADED: {{image.upload_date}}</li>
+                                                </ul>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
                 </div>
                 {% endfor %}
             </div>
