@@ -6,7 +6,7 @@ from .models import Image, Category, Location
 def welcome(request):
     categories = Category.objects.all()
     locations = Location.objects.all()
-    return render(request, 'index.html',{"categories":categories,"locations":locations})
+    return render(request, 'categories.html',{"categories":categories,"locations":locations})
 
 def categories(request):
     categories = Category.objects.all()
@@ -23,9 +23,9 @@ def category(request):
         message = f"{search_term}"
         return render(request, 'category.html',{"message":message,"category": searched_category,"images":images,"locations":locations})
 
-    else:
-        message = "Invalid."
-        return render(request, 'index.html',{"message":message,"locations":locations})
+    # else:
+    #     message = "Invalid."
+    #     return render(request, 'index.html',{"message":message,"locations":locations})
 
 def location(request,id):
     locations = Location.objects.all()
