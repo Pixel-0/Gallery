@@ -18,9 +18,9 @@
                                     <div class="col-md-5">
                                         <h2 style="text-align: center;">{{image.name}}</h2>
                                     </div>
-                                    <!-- <div class="col-md-5">
+                                    <div class="col-md-5">
                                             <button class="btn" onclick="copyToClipboard('127.0.0.1:8000{{image.image.url}}')">copy link</button>
-                                    </div> -->
+                                    </div>
                                 </div>
                 </div>
                     <div class="modal" id="{{image.name}}" tabindex="-1" role="dialog"
@@ -46,6 +46,18 @@
                     {% endfor %}
             </div>
         </div>
+
+        <script>
+                function copyToClipboard (str) {
+                    const el = document.createElement('textarea');
+                    el.value = str;
+                    document.body.appendChild(el);
+                    el.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(el);
+                };
+            </script>
+
 </body>
 
 </html>
