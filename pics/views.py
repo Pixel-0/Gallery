@@ -21,11 +21,7 @@ def category(request):
         search_term = request.GET.get("category")
         searched_category = Category.search_by_category(search_term)
         message = f"{search_term}"
-        return render(request, 'category.html',{"message":message,"category": searched_category,"images":images,"locations":locations})
-
-    # else:
-    #     message = "Invalid."
-    #     return render(request, 'index.html',{"message":message,"locations":locations})
+        return render(request, 'search.html',{"message":message,"category": searched_category,"images":images,"locations":locations})
 
 def location(request,id):
     locations = Location.objects.all()
